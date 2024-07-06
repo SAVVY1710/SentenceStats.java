@@ -10,17 +10,21 @@ public class SentenceStats
     int words;
     int[] lettercounter ;
     int biggest;
+    String [] allwords;
+    //constructor in order to initialize variables
     public SentenceStats()
     {
         lettercounter = new int[26];
         words = 0;
         biggest = 0;
     }
+    //main where i run the whole program
     public static void main(String[]args)
     {
         SentenceStats ss = new SentenceStats();
         ss.run();
     }
+    //method called my main so that I am not in a static environment
     public void run()
     {
         scan = new Scanner(System.in);
@@ -72,6 +76,54 @@ public class SentenceStats
             }      
         }
         System.out.println("~ " + biggest );
+        allwords = new String[words+1];
+        sentence = sentence + " ";
+        seperateWords(sentence);
         
+    }
+    //method used to seperate words
+    public void seperateWords(String sentence)
+    {
+        int index1 = 0;
+        int length = sentence.length();
+        for(int i = 0; i < length; i++)
+        {
+            if(sentence.length() > 1 &&sentence.charAt(i) == ' ' )
+            {
+                allwords[index1] = sentence.substring(0,i).trim();
+                index1++;
+                sentence = sentence.substring(i, sentence.length());
+                i = 0;
+                //System.out.println(sentence);
+            }
+        }
+        for(int i = 0; i <= words; i++)
+        {
+            System.out.println(allwords[i]);
+        }
+        String wordsabove2 = "";
+        for(int i = 0; i <= words; i++)
+        {
+            for(int n = 0; n <= words; n++)
+            {
+                if(i != n && allwords[i].equals(allwords[n]))
+                {
+                    wordsabove2 += allwords[n] + " ";
+                }
+            }
+        }
+        System.out.println("here: " + wordsabove2);
+        big(allwords);
+    }
+    public void big(String[]allwords)
+    {
+        String temp;
+        for(int i = 0; i < allwords.length; i++)
+        {
+            if() 
+            {
+                
+            }
+        }
     }
 }
