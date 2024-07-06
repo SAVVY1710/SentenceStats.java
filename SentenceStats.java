@@ -8,7 +8,7 @@ public class SentenceStats
 {
     Scanner scan;
     int words;
-    int[] lettercounter;
+    int[] lettercounter ;
     int biggest;
     public SentenceStats()
     {
