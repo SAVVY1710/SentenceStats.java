@@ -71,7 +71,7 @@ public class SentenceStats
                 System.out.print((char)(i+65) + " ");
             }      
         }
-        System.out.println("~ " + biggest);
+        System.out.println("~ " + biggest );
         
     }
 }
