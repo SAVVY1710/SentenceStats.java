@@ -1,5 +1,5 @@
-/*/**
- * SentenceStats
+/*
+ * SentenceStats.java
  * @author Sai Avula
  * @since 7/5/2024
  */
@@ -99,7 +99,7 @@ public class SentenceStats
         }
         for(int i = 0; i <= words; i++)
         {
-            System.out.println(allwords[i]);
+            //System.out.println(allwords[i]);
         }
         String wordsabove2 = "";
         for(int i = 0; i <= words; i++)
@@ -112,18 +112,53 @@ public class SentenceStats
                 }
             }
         }
-        System.out.println("here: " + wordsabove2);
+        //System.out.println("here: " + wordsabove2);
         big(allwords);
     }
+    //arranges strings from biggest length to smallest.
     public void big(String[]allwords)
     {
         String temp;
         for(int i = 0; i < allwords.length; i++)
         {
-            if() 
+            if(allwords[i].length() > allwords[0].length()) 
             {
-                
+                temp = allwords[i];
+                allwords[i] = allwords[0];
+                allwords[0] = temp;
+
             }
         }
-    }
-}
+        for(int i = 1; i < allwords.length; i++)
+        {
+            if(allwords[i].length() > allwords[1].length()) 
+            {
+                temp = allwords[i];
+                allwords[i] = allwords[1];
+                allwords[1] = temp;
+
+            }
+        }//end of loop
+        for(int i = 2; i < allwords.length; i++)
+        {
+            for(int n = 2; n < allwords.length; n++)
+            {
+                if(allwords[n].length() < allwords[i].length()) 
+                {
+                    temp = allwords[n];
+                    allwords[n] = allwords[i];
+                    allwords[i] = temp;
+                }
+            }
+        }
+
+        for(int i = 0; i < allwords.length; i++)
+        {
+            //System.out.println(allwords[i]);
+        }//for loop to print words
+
+        System.out.println("Longest word: " + allwords[0]);
+        System.out.println("Shortest Word: "+allwords[(allwords.length)-1]);
+
+    }//end of method
+}//end of class
